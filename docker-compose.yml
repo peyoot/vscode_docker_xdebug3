@@ -12,6 +12,7 @@ services:
     volumes:
       - ./logs:/usr/local/var/log
       - ./php/php.ini:/usr/local/etc/php/php.ini:rw
+      - ./php/xdebug.ini:/usr/local/etc/php/conf.d/xdebug.ini:rw
       - ./www:/var/www/html:rw
 #      - ./logs/xdebug:/logs/xdebug
 #      - ./logs/php-fpm/:/tmp/xdebug_log
