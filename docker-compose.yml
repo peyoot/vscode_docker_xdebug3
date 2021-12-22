@@ -1,0 +1,23 @@
+version: "3"
+services:
+  php:
+    build:
+#      dockerfile: Dockerfile
+      context: ./
+    container_name: php
+    ports:
+      - 80:80
+    expose:
+      - 9000
+    volumes:
+      - ./logs:/usr/local/var/log
+      - ./php/php.ini:/usr/local/etc/php/php.ini:rw
+      - ./www:/var/www/html:rw
+#      - ./logs/xdebug:/logs/xdebug
+#      - ./logs/php-fpm/:/tmp/xdebug_log
+    networks:
+      - default
+networks:
+  default:
+    external:
+      name: pvpn
